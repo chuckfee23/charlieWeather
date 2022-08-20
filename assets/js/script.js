@@ -3,6 +3,7 @@
 var searchInput = $("#citySearch");
 var searchButton = $("#searchBtn");
 var currentWeatherData = $(".weatherData");
+var forecastCard = $(".weatherCard");
 var forecastData = $(".cardData");
 var displayCity = $("#city");
 var uvIndex = $("#uvIndex");
@@ -32,40 +33,100 @@ function currentWeather(searchCity) {
       for (i = 0; i < currentArray.length; i++) {
         currentWeatherData.eq(i).text(currentArray[i]);
       }
-      //   color code UV index
+
+      // display weather icon for current weather
+      var icon = data.data[0].weather.icon;
+      var iconUrl =
+        "https://www.weatherbit.io/static/img/icons/" + icon + ".png";
+
+      $("#weatherIcon").attr("src", iconUrl);
+
+      //   color code UV index based on value
       var uvValue = data.data[0].uv.toFixed(2);
       console.log(uvValue);
       if (uvValue < 3) {
-        uvIndex.addClass("lowUv");
+        uvIndex
+          .removeClass("modUv highUv veryHighUv extremeUv")
+          .addClass("lowUv");
       } else if (uvValue >= 3 && uvValue < 6) {
-        uvIndex.addClass("modUv");
+        uvIndex
+          .removeClass("lowUv highUv veryHighUv extremeUv")
+          .addClass("modUv");
       } else if (uvValue >= 6 && uvValue < 8) {
-        uvIndex.addClass("highUv");
+        uvIndex
+          .removeClass("lowUv modUv veryHighUv extremeUv")
+          .addClass("highUv");
       } else if (uvValue >= 8 && uvValue < 11) {
-        uvIndex.addClass("veryHighUv");
+        uvIndex
+          .removeClass("lowUv modUv highUv extremeUv")
+          .addClass("veryHighUv");
       } else if (uvValue >= 11) {
-        uvIndex.addClass("extremeUv");
+        uvIndex
+          .removeClass("lowUv modUv highUv veryHighUv")
+          .addClass("extremeUv");
       }
     });
 
-  displayCity.append(" " + city);
+  // Display which city the user searched
+
+  displayCity.text("Current Weather: " + city);
 }
 
 function fiveDay(searchCity) {
-  var apiKey = "af731df2485a550480409e3645b1aaf0";
+  var apiKey = "f6f54b5d54014d398a42af9b0e078322";
   var city = searchCity;
   var weatherUrl =
-    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    "https://api.weatherbit.io/v2.0/forecast/daily?city=" +
     city +
-    "&appid=" +
+    "&key=" +
     apiKey +
-    "&units=imperial";
+    "&units=I";
   fetch(weatherUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
+
+      // Display icon on all cards
+
+      for (j = 0; j <= 5; j++) {
+        var cardIcon = data.data[j].weather.icon;
+        var cardIconUrl =
+          "https://www.weatherbit.io/static/img/icons/" + cardIcon + ".png";
+
+        $(".cardIcon").eq(j).attr("src", cardIconUrl);
+      }
+
+      // Display Date on all cards
+      for (j = 0; j <= 5; j++) {
+        var cardDate = data.data[j].datetime;
+        $(".cardDate").eq(j).text(cardDate);
+      }
+
+      // Display Temp on all cards
+      for (j = 0; j <= 5; j++) {
+        var cardTemp = data.data[j].high_temp;
+        $(".cardTemp")
+          .eq(j)
+          .text("Temperature: " + cardTemp.toFixed(0));
+      }
+
+      // Display Wind on all cards
+      for (j = 0; j <= 5; j++) {
+        var cardWind = data.data[j].wind_spd;
+        $(".cardWind")
+          .eq(j)
+          .text("Wind: " + cardWind);
+      }
+
+      // Display Humidity on all cards
+      for (j = 0; j <= 5; j++) {
+        var cardHum = data.data[j].rh;
+        $(".cardHum")
+          .eq(j)
+          .text("Humidity: " + cardHum);
+      }
     });
 }
 
@@ -75,4 +136,5 @@ searchButton.on("click", () => {
   var searchCity = searchInput.val().trim();
   currentWeather(searchCity);
   fiveDay(searchCity);
+  searchInput.val("");
 });

@@ -1,0 +1,157 @@
+:root {
+  --lightblue: rgb(131, 207, 255);
+  --darkblue: rgb(64, 117, 193);
+  --cream: rgb(255, 248, 241);
+  --gray: rgb(158, 153, 148);
+  --green: green;
+  --yellow: yellow;
+  --orange: orange;
+  --red: red;
+  --purple: rgb(151, 86, 151);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 3rem;
+}
+
+h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+}
+
+h3 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1.5rem;
+}
+
+header {
+  background-color: var(--darkblue);
+  color: var(--cream);
+  padding: 30px;
+}
+
+#primaryDiv {
+  display: flex;
+  background-color: var(--cream);
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+#citySearch {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+
+#searchBtn {
+  background-color: var(--darkblue);
+  color: var(--cream);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+#searchBtn:hover {
+  background-color: var(--lightblue);
+}
+
+#weather {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+#currentWeather {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#weatherDataList {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+#weatherData {
+  margin-bottom: 20px;
+}
+
+#upcomingWeather {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.weatherCard {
+  background-color: var(--darkblue);
+  color: var(--cream);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 20px 60px 20px 10px;
+  border-radius: 5px;
+}
+
+.cardDataList {
+  list-style-type: none;
+  padding-inline-start: 10px;
+}
+
+.cardData {
+  margin-bottom: 20px;
+}
+
+.lowUv {
+  background-color: var(--green);
+  color: var(--cream);
+  border-radius: 5px;
+  padding: 5px;
+  max-width: 200px;
+}
+
+.modUv {
+  background-color: var(--yellow);
+  color: black;
+  border-radius: 5px;
+  padding: 5px;
+  max-width: 200px;
+}
+
+.highUv {
+  background-color: var(--orange);
+  color: var(--cream);
+  border-radius: 5px;
+  padding: 5px;
+  max-width: 200px;
+}
+
+.veryHighUv {
+  background-color: var(--red);
+  color: var(--cream);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.extremeUv {
+  background-color: var(--purple);
+  color: var(--cream);
+  border-radius: 5px;
+  padding: 5px;
+}

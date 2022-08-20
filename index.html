@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>charlieWeather</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>charlieWeather Dashboard</h1>
+      </header>
+      <div id="primaryDiv">
+        <aside>
+          <h2>Search for a city:</h2>
+          <input type="text" id="citySearch" />
+          <button id="searchBtn">Search</button>
+          <ul></ul>
+        </aside>
+        <section id="weather">
+          <div id="currentWeather">
+            <h2 id="city">Current Weather:</h2>
+            <ul id="weatherDataList">
+              <li class="weatherData">Temperature:</li>
+              <li class="weatherData">Wind:</li>
+              <li class="weatherData">Humidity:</li>
+              <li id="uvIndex" class="weatherData">UV Index:</li>
+            </ul>
+          </div>
+          <h2>5-Day Forecast</h2>
+          <div id="upcomingWeather">
+            <div class="weatherCard">
+              <h3 class="cardDate">8/20/2022</h3>
+              <ul class="cardDataList">
+                <li class="cardData">Temperature:</li>
+                <li class="cardData">Wind:</li>
+                <li class="cardData">Humidity:</li>
+              </ul>
+            </div>
+            <div class="weatherCard">
+              <h3 class="cardDate">8/21/2022</h3>
+              <ul class="cardDataList">
+                <li class="cardData">Temperature:</li>
+                <li class="cardData">Wind:</li>
+                <li class="cardData">Humidity:</li>
+              </ul>
+            </div>
+            <div class="weatherCard">
+              <h3 class="cardDate">8/23/2022</h3>
+              <ul class="cardDataList">
+                <li class="cardData">Temperature:</li>
+                <li class="cardData">Wind:</li>
+                <li class="cardData">Humidity:</li>
+              </ul>
+            </div>
+            <div class="weatherCard">
+              <h3 class="cardDate">8/24/2022</h3>
+              <ul class="cardDataList">
+                <li class="cardData">Temperature:</li>
+                <li class="cardData">Wind:</li>
+                <li class="cardData">Humidity:</li>
+              </ul>
+            </div>
+            <div class="weatherCard">
+              <h3 class="cardDate">8/25/2022</h3>
+              <ul class="cardDataList">
+                <li class="cardData">Temperature:</li>
+                <li class="cardData">Wind:</li>
+                <li class="cardData">Humidity:</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

@@ -7,6 +7,8 @@ var forecastCard = $(".weatherCard");
 var forecastData = $(".cardData");
 var displayCity = $("#city");
 var uvIndex = $("#uvIndex");
+var cityList = [];
+var recentSearches = $("#recentSearches");
 
 function currentWeather(searchCity) {
   var apiKey = "f6f54b5d54014d398a42af9b0e078322";
@@ -130,11 +132,46 @@ function fiveDay(searchCity) {
     });
 }
 
-// searchWeather();
+function saveSearch(searchCity) {
+  cityList.unshift(searchCity);
+  var newCity = JSON.stringify(cityList);
+  localStorage.setItem("recentCity", newCity);
+}
+
+function displaySearch() {
+  var cityStorage = localStorage.getItem("recentCity");
+  cityStorage = JSON.parse(cityStorage);
+  for (var i = 0; i < 7; i++) {
+    if (cityStorage[i] != null) {
+      var createButton = document.createElement("button");
+      createButton.textContent = cityStorage[i];
+      recentSearches.append(createButton);
+    }
+  }
+}
+
+// Function for default page setting (Denver, CO)
+function init() {
+  var searchCity = "Denver, CO";
+  currentWeather(searchCity);
+  fiveDay(searchCity);
+  displaySearch();
+}
+
+init();
 
 searchButton.on("click", () => {
   var searchCity = searchInput.val().trim();
   currentWeather(searchCity);
   fiveDay(searchCity);
+  saveSearch(searchCity);
+  displaySearch();
   searchInput.val("");
+});
+
+recentSearches.on("click", () => {
+  var searchCity = recentSearches.text();
+  currentWeather(searchCity);
+  fiveDay(searchCity);
+  recentSearches.val("");
 });

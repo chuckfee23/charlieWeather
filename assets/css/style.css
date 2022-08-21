@@ -42,6 +42,7 @@ header {
 #primaryDiv {
   display: flex;
   background-color: var(--cream);
+  height: 100vh;
 }
 
 aside {

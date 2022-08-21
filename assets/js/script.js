@@ -9,6 +9,7 @@ var displayCity = $("#city");
 var uvIndex = $("#uvIndex");
 var cityList = [];
 var recentSearches = $("#recentSearches");
+var recentSearchBtn = $(".recentSearchBtn");
 
 function currentWeather(searchCity) {
   var apiKey = "f6f54b5d54014d398a42af9b0e078322";
@@ -145,6 +146,7 @@ function displaySearch() {
     if (cityStorage[i] != null) {
       var createButton = document.createElement("button");
       createButton.textContent = cityStorage[i];
+      createButton.className += " recentSearchBtn";
       recentSearches.append(createButton);
     }
   }
@@ -171,7 +173,7 @@ searchButton.on("click", () => {
 
 recentSearches.on("click", () => {
   var searchCity = recentSearches.text();
+  console.log(searchCity);
   currentWeather(searchCity);
   fiveDay(searchCity);
-  recentSearches.val("");
 });

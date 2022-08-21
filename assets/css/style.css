@@ -2,7 +2,7 @@
   --lightblue: rgb(131, 207, 255);
   --darkblue: rgb(64, 117, 193);
   --cream: rgb(255, 248, 241);
-  --gray: rgb(158, 153, 148);
+  --gray: rgb(123, 122, 121);
   --green: green;
   --yellow: yellow;
   --orange: orange;
@@ -66,6 +66,7 @@ aside {
   font-size: 1rem;
   border-radius: 5px;
   padding: 5px 10px;
+  margin-bottom: 10px;
 }
 
 #searchBtn:hover {
@@ -159,4 +160,24 @@ aside {
   border-radius: 5px;
   padding: 5px;
   max-width: 200px;
+}
+
+#recentSearches {
+  display: flex;
+  flex-direction: column;
+}
+
+.recentSearchBtn {
+  background-color: var(--gray);
+  color: var(--cream);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 10px;
+}
+
+.recentSearchBtn:hover {
+  background-color: var(--lightblue);
 }

@@ -9,3 +9,5 @@ This application was built entirely from scratch using HTML, CSS, and JavaScript
 The following image shows the application's functionality:
 
 ![The charlieWeather app shows the current weather, and 5-day forecast for any US city](./assets/images/Screen%20Shot%202022-08-20%20at%209.40.17%20PM.png)
+
+Here is a link to the charlieWeather app: https://chuckfee23.github.io/charlieWeatherApp/

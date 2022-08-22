@@ -142,6 +142,9 @@ function saveSearch(searchCity) {
 function displaySearch() {
   var cityStorage = localStorage.getItem("recentCity");
   cityStorage = JSON.parse(cityStorage);
+  if (!cityStorage) {
+    return;
+  }
   for (var i = 0; i < 7; i++) {
     if (cityStorage[i] != null) {
       var createButton = document.createElement("button");
@@ -164,6 +167,7 @@ init();
 
 searchButton.on("click", () => {
   var searchCity = searchInput.val().trim();
+  console.log(searchCity);
   currentWeather(searchCity);
   fiveDay(searchCity);
   saveSearch(searchCity);
